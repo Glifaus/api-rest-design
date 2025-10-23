@@ -24,6 +24,8 @@ paths:
         - Tasks
       summary: Obtener todas las tareas
       description: Devuelve una lista de tareas registradas
+      security:
+        - apiKeyAuth: []
       responses:
         '200':
           description: Lista de tareas obtenida correctamente
@@ -38,6 +40,8 @@ paths:
         - Tasks
       summary: Crear una nueva tarea
       description: Crea una nueva tarea a partir de los datos enviados
+      security:
+        - apiKeyAuth: []
       requestBody:
         required: true
         content:
@@ -96,3 +100,8 @@ components:
         details:
           type: string
           example: "The field 'title' is required"
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
